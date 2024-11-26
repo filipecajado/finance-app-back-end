@@ -29,6 +29,7 @@ public class TransacaoController {
 
 	@PostMapping()
 	public ResponseEntity<TransacaoEntity> save(@RequestBody TransacaoDTO transacao) {
+
 		Transacao novaTransacao;
 		if (transacao.getTipo().equals("RECEITA")) {
 			novaTransacao = new Receita(transacao.getDescricao(), transacao.getValor(), transacao.getData());
@@ -55,12 +56,6 @@ public class TransacaoController {
 	@DeleteMapping()
 	public ResponseEntity<HttpStatus> deleteAll() {
 		transacaoService.deleteAll();
-		return ResponseEntity.ok().build();
-	}
-
-	@PutMapping("/checked")
-	public ResponseEntity<HttpStatus> changeChecked(@RequestParam  Boolean checked, @RequestParam  Long id) {
-		transacaoService.changeChecked(checked, id);
 		return ResponseEntity.ok().build();
 	}
 

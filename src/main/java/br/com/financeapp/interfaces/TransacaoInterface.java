@@ -19,6 +19,5 @@ public interface TransacaoInterface {
 	void delete(Long id);
 	
 	void deleteAll();
-	
-	void changeChecked(Boolean checked, Long id);
+
 }
